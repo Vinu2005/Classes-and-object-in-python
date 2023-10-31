@@ -1,0 +1,44 @@
+class Book:
+    def __init__(self, title, author, isbn):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+
+class Library:
+    def __init__(self):
+        self.catalog = []  # List to store the books in the library
+
+    def add_book(self, book):
+        self.catalog.append(book)
+
+    def search_by_title(self, title):
+        return [book for book in self.catalog if book.title == title]
+
+    def search_by_author(self, author):
+        return [book for book in self.catalog if book.author == author]
+
+    def check_out_book(self, title):
+        for book in self.catalog:
+            if book.title == title:
+                self.catalog.remove(book)
+                return book
+        return None
+
+# Example usage:
+# Create Library and add books to the catalog
+library = Library()
+book1 = Book("Python Programming", "John Smith", "978-1234567890")
+book2 = Book("JavaScript Basics", "Alice Johnson", "978-0987654321")
+library.add_book(book1)
+library.add_book(book2)
+
+# Search for books and check one out
+found_books = library.search_by_author("John Smith")
+if found_books:
+    checked_out_book = library.check_out_book(found_books[0].title)
+    if checked_out_book:
+        print("Checked out book:", checked_out_book.title)
+    else:
+        print("Book not available")
+else:
+    print("Book by the author not found")
