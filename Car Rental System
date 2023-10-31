@@ -1,0 +1,32 @@
+class Car:
+    def __init__(self, make, model, daily_rental_rate):
+        self.make = make
+        self.model = model
+        self.daily_rental_rate = daily_rental_rate
+
+class Rental:
+    def __init__(self, customer_name, rented_car, num_days):
+        self.customer_name = customer_name
+        self.rented_car = rented_car
+        self.num_days = num_days
+
+    def calculate_rental_cost(self):
+        return self.num_days * self.rented_car.daily_rental_rate
+
+    def display_rental_details(self):
+        print("Customer Name:", self.customer_name)
+        print("Car Make:", self.rented_car.make)
+        print("Car Model:", self.rented_car.model)
+        print("Number of Days Rented:", self.num_days)
+        print("Rental Cost:", self.calculate_rental_cost())
+
+# Create Car objects
+car1 = Car("Toyota", "Camry", 50)
+car2 = Car("Honda", "Civic", 45)
+
+# Create a Rental transaction and display details
+rental1 = Rental("Alice", car1, 3)
+rental2 = Rental("Bob", car2, 5)
+
+rental1.display_rental_details()
+rental2.display_rental_details()
