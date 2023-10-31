@@ -1,0 +1,25 @@
+class Email:
+    def __init__(self, sender, receiver, subject, message_body):
+        self.sender = sender
+        self.receiver = receiver
+        self.subject = subject
+        self.message_body = message_body
+
+    def send_email(self):
+        print("Email sent from", self.sender, "to", self.receiver)
+        print("Subject:", self.subject)
+        print("Message:", self.message_body)
+
+    def receive_email(self):
+        print("Email received from", self.sender, "by", self.receiver)
+        print("Subject:", self.subject)
+        print("Message:", self.message_body)
+
+# Create two instances of the Email class and simulate an email exchange
+email1 = Email("user1@example.com", "user2@example.com", "Hello", "Hi there! How are you?")
+email2 = Email("user2@example.com", "user1@example.com", "Re: Hello", "I'm good, thanks. How about you?")
+
+# Simulate sending and receiving emails
+email1.send_email()
+print("\n")
+email2.receive_email()
